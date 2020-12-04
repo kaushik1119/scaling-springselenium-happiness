@@ -1,5 +1,6 @@
 package com.springboot.seleniumspring;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +12,10 @@ import java.util.List;
 class SeleniumSpringApplicationTests {
 	@Autowired
 	private User user;
+
+	//create a configuration class and add bean for faker
+	@Autowired
+	private Faker faker;
 
 	@Value("${family}")
 	private String family;
@@ -37,6 +42,11 @@ class SeleniumSpringApplicationTests {
 		System.out.println("Number of fruits: " + fruitList.size());
 		System.out.println("My name is " + name);
 
+	}
+
+	@Test
+	void externalClassTest(){
+		System.out.println(faker.name().firstName());
 	}
 
 }
