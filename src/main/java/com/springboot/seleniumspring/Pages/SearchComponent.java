@@ -1,13 +1,22 @@
 package com.springboot.seleniumspring.Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.springframework.stereotype.Component;
 
-public class SearchPage extends Base {
+@Component
+public class SearchComponent extends Base {
     private By searchBox = By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input");
     private By search = By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[3]/center/input[1]");
 
-    public void searchText(String text){
-        webDriver.findElement(searchBox).sendKeys(text);
+    public SearchComponent searchText(String text){
+        sendKeys(searchBox,text);
+        sendKeys(searchBox, Keys.TAB);
+        return this;
+    }
+
+    public void clickSearch(){
+        clickElement(search);
     }
 
 
