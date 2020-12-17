@@ -7,7 +7,7 @@ import com.springboot.seleniumspring.base.annotations.LazyAutowired;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class GoogleTest extends SpringBaseTestNG {
+public class GoogleTest1 extends SpringBaseTestNG {
 
     @LazyAutowired
     private GoogleHomePage googleHomePage;
@@ -16,23 +16,22 @@ public class GoogleTest extends SpringBaseTestNG {
     private ScreenshotUtil screenshotUtil;
 
     @Test
-    public void firstTest(){
+    public void secondTest(){
         System.out.println("Test is starting");
         googleHomePage.goToPage();
         Assert.assertTrue(googleHomePage.pageLoadWait());
 
-        googleHomePage.getSearchComponent().searchText("spring boot")
+        googleHomePage.getSearchComponent().searchText("selenium")
 
                                             .clickSearch();
 
         Assert.assertTrue(googleHomePage.getSearchResult().resultSize() > 2);
         screenshotUtil.takeScreenShot();
-        googleHomePage.close();
-
+        //googleHomePage.close();
 
     }
-/*
-    @AfterTest
+
+    /*@AfterTest
     public void close(){
         googleHomePage.close();
     }*/

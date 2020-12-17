@@ -1,18 +1,17 @@
 package com.springboot.seleniumspring.Pages;
 
+import com.springboot.seleniumspring.base.annotations.LazyAutowired;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public abstract class Base {
 
-    @Autowired
+    @LazyAutowired
     protected WebDriver webDriver;
 
-    @Autowired
+    @LazyAutowired
     protected WebDriverWait webDriverWait;
 
 
@@ -38,6 +37,10 @@ public abstract class Base {
 
     public List<WebElement> getElementList(By by){
         return webDriver.findElements(by);
+    }
+
+    public void close(){
+        webDriver.quit();
     }
 
 

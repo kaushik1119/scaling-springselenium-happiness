@@ -1,8 +1,8 @@
 package com.springboot.seleniumspring;
 
 import com.github.javafaker.Faker;
+import com.springboot.seleniumspring.base.annotations.LazyAutowired;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,11 +10,11 @@ import java.util.List;
 
 @SpringBootTest
 class SeleniumSpringApplicationTests {
-	@Autowired
+	@LazyAutowired
 	private User user;
 
 	//create a configuration class and add bean for faker
-	@Autowired
+	@LazyAutowired
 	private Faker faker;
 
 	@Value("${family}")

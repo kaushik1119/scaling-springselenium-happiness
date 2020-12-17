@@ -1,11 +1,12 @@
-package com.springboot.seleniumspring.Utils;
+package com.springboot.seleniumspring.base.Utils;
 
 
+import com.github.javafaker.Faker;
+import com.springboot.seleniumspring.base.annotations.LazyAutowired;
 import org.openqa.selenium.OutputType;
 
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -23,14 +24,17 @@ import java.time.LocalDateTime;
 @Component
 public class ScreenshotUtil {
 
-    @Autowired
-    private WebDriver driver;
+    @LazyAutowired
+    private WebDriver webDriver;
 
-    @Autowired
+    @LazyAutowired
     LocalDateTime dateTime;
 
     @Value("${screenshot.path}")
     private Path path;
+
+    @LazyAutowired
+    private Faker faker;
 
     @PostConstruct
     public void init(){
@@ -38,9 +42,9 @@ public class ScreenshotUtil {
     }
 
     public void takeScreenShot(){
-        File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File file = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
         try {
-            FileCopyUtils.copy(file,path.resolve(dateTime.getNano() + ".png").toFile());
+            FileCopyUtils.copy(file,path.resolve(faker.name().firstName() + dateTime.getNano() + ".png").toFile());
         } catch (IOException e) {
             e.printStackTrace();
         }

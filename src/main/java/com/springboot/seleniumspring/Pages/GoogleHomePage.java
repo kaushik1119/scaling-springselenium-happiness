@@ -1,17 +1,16 @@
 package com.springboot.seleniumspring.Pages;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.seleniumspring.base.annotations.LazyAutowired;
+import com.springboot.seleniumspring.base.annotations.Page;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-
-@Component
+@Page
 public class GoogleHomePage extends Base {
 
-    @Autowired
+    @LazyAutowired
     private SearchComponent searchComponent;
 
-    @Autowired
+    @LazyAutowired
     private SearchResult searchResult;
 
     @Value("${url}")

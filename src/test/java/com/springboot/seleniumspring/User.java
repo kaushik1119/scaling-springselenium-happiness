@@ -1,14 +1,16 @@
 package com.springboot.seleniumspring;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.seleniumspring.base.annotations.LazyAutowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+@Lazy
 @Component
 public class User {
 
-    @Autowired
+    @LazyAutowired
     private Address address;
-    @Autowired
+    @LazyAutowired
     private Salary salary;
 
     /*public User(Address address, Salary salary){
