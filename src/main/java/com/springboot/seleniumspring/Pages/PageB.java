@@ -1,9 +1,10 @@
 package com.springboot.seleniumspring.Pages;
-import com.springboot.seleniumspring.base.annotations.Page;
+
+import com.springboot.seleniumspring.base.annotations.Window;
 import org.openqa.selenium.By;
 
 
-@Page
+@Window("Page B")
 public class PageB extends Base {
 
     By messageField = By.id("area");

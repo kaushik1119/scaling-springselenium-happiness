@@ -1,4 +1,4 @@
-package com.springboot.seleniumspring.basePackage.service;
+package com.springboot.seleniumspring.base.Utils;
 
 
 import org.openqa.selenium.WebDriver;
