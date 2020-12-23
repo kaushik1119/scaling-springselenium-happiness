@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class WebDriverWaitConfig {
 
-    @Value("${defaultTimeout:10")
+    @Value("${defaultTimeout:10}")
     private int timeout;
 
     @Bean

@@ -29,7 +29,7 @@ public class RemoteWebDriverConfig {
     }
 
     @Bean
-    @ConditionalOnMissingBean
+    @ConditionalOnProperty(name = "browser", havingValue = "chrome")
     public WebDriver remoteChrome(){
         return new RemoteWebDriver(url, DesiredCapabilities.chrome());
     }
